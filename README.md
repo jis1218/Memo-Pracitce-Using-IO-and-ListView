@@ -46,3 +46,26 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 }
 ```
+
+##### FileInputStream의 쓰임
+```java
+public static String read(Context context, String fileName) throws IOException {
+
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            fis = context.openFileInput(fileName);
+
+            bis = new BufferedInputStream(fis);
+            byte[] byteContainer = new byte[1000];
+            int count = 0;
+            while ((count = bis.read(byteContainer)) != -1) {
+                String str = new String(byteContainer, 0, count);
+                stringBuilder.append(str);
+            }
+        ...
+```
+
+##### FileInputStream의 객체를 받아올 때 context.openFileInput을 쓰게 되는데
+##### 이때 파라미터로 넘겨지는 fileName은 경로 다 빼고 순수하게 그 파일 이름만 받아오면 된다.

@@ -1,6 +1,8 @@
 package com.example.insupmemo.util;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -39,6 +41,7 @@ public class FileReadWrite {
         StringBuilder stringBuilder = new StringBuilder();
         try {
             fis = context.openFileInput(fileName);
+
             bis = new BufferedInputStream(fis);
             byte[] byteContainer = new byte[1000];
             int count = 0;

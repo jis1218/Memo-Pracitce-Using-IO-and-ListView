@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.insupmemo.domain.Memo;
 import com.example.insupmemo.util.FileReadWrite;
@@ -70,6 +71,7 @@ public class ListActivity extends AppCompatActivity {
             try {
 
                 String wholeContent = FileReadWrite.read(this, item.getName()); //왜 getName인가???
+                Toast.makeText(this, item.getName(), Toast.LENGTH_SHORT).show();
                 Log.d("wholeContent", "String은 =" + wholeContent);
                 Memo memo = new Memo();
                 memo.divideContent(wholeContent);

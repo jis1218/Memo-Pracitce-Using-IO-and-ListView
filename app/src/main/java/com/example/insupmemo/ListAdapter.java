@@ -59,6 +59,7 @@ public class ListAdapter extends BaseAdapter {
         }
         holder.setTxtViewTitle(memo.getTitle());
         holder.setTxtViewDate(memo.getDatetime());
+        //view를 눌렀을 때 intent에 extra 값을 넣어주어 detailActivity로 넘겨주는 코드가 추가되어야 함
         return view;
     }
 
